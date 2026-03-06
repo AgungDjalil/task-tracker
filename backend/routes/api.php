@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::post("login", [AuthController::class, "login"]);
 Route::post("logout", [AuthController::class, "logout"])->middleware('auth:sanctum');
 
+Route::get('categories', [\App\Http\Controllers\CategoryController::class, "index"]);
+
 Route::middleware("auth:sanctum")->group(function () {
     Route::get('tasks', [TaskController::class, "index"]);
     Route::post("create-task", [TaskController::class, "store"])->middleware('isAdmin');
