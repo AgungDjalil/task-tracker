@@ -28,6 +28,13 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true
         ]);
         
+        User::create([
+            'name' => 'udin',
+            'email' => 'udin@gmail.com',
+            'password' => Hash::make('123'),
+            'is_admin' => false
+        ]);
+
         User::factory()->count(10)->create();
     }
 }

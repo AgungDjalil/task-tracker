@@ -1,0 +1,500 @@
+{
+  "info": {
+    "_postman_id": "810a3292-21d2-4963-b839-6a17c39c27ba",
+    "name": "task-tracker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "login",
+          "id": "7d34a542-4ec7-4491-9cc9-93f9242fd690",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "4c09d39f-495a-4bd5-9f48-49db9ab7691b"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\" : \"admin@gmail.com\", \n    \"password\" : 123\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/login",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "id": "e9a99d8a-1783-4bb1-af62-c364172d1364",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "b9ccfeac-9bfb-460d-ae9a-ceefe755390e"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/logout",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "d2c3d888-7095-4e35-a796-349da9e427c0"
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "create new project",
+          "id": "fbb23b8a-5f80-453f-bd61-9b48885acfd4",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "2def38ec-e284-4c6a-9ad5-0d4ff556442d"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\" : \"bumbum\",\n    \"description\" : \"bumbumbum\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/create-project",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "create-project"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all project",
+          "id": "141641f5-033a-48fb-b584-b31787278727",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_USER}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "5f52b544-cd57-4f07-b2cb-2cb33e93cbb6"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/projects",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update project",
+          "id": "b5daea79-efb9-4904-97ab-2521303b8833",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "b87d90d4-06d1-4b6a-b34b-662d49d86a4a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\" : \"archived\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/update-project/6",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "update-project",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get details project",
+          "id": "2eb1087b-6526-4620-ba94-666d08233f27",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "dd72cb35-ca39-489f-9042-3db038b8d45e"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/project/6",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "project",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "fee6963b-284b-4b54-8124-6bcb3ba9574e"
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "create tasks",
+          "id": "54a89d50-ff8d-4be3-a1c3-660384e5c1cf",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "c2813e18-c79d-4cc0-8f74-7346faf711d0"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\" : \"slicing UI\",\n    \"description\" : \"sumsusmssmb m bum bum bm bum bum\",\n    \"due_date\" : \"204-1-2\",\n    \"category_id\" : 1,\n    \"project_id\" : 6\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/create-task",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "create-task"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all tasks",
+          "id": "76d4e8fb-567d-4763-8e5f-27593ffc3137",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "452c2df5-5b35-4628-9751-49f7eef0e33c"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tasks",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get tasks by project id",
+          "id": "6c389d6c-52a8-4cc0-b886-454af1139b6b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "04ee1b1f-09b2-4fd1-9045-9b67f9082c35"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tasks-by-project/6",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tasks-by-project",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "59c7fe77-d0e7-46ce-9c86-fc70046786ef",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AT_ADMIN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "ce6e10fa-74b5-449d-a818-ab15c6f6d14e"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\" : \"slicing UI update\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/update-task/5",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "update-task",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "57edcdd7-bb6d-4be0-b7b2-7f1a88554eec",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "76eb228e-c79e-4276-856f-2e5707eb2ad4"
+    }
+  ],
+  "variable": [
+    {
+      "id": "9ecbc2e8-47c5-4e65-8200-ac15bb96c174",
+      "key": "AT_USER",
+      "value": ""
+    },
+    {
+      "id": "61f100de-8428-4dde-8772-4c3ac49858f7",
+      "key": "AT_ADMIN",
+      "value": ""
+    }
+  ]
+}
