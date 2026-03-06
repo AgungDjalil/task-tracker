@@ -13,7 +13,6 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::post("create-task", [TaskController::class, "store"])->middleware('isAdmin');
     Route::patch('update-task/{id}', [TaskController::class, "update"])->middleware('isAdmin');
     Route::get('tasks-by-project/{projectId}', [TaskController::class, "tasksByProject"]);
-    Route::delete('delete-task/{id}', [TaskController::class, "destroy"])->middleware('isAdmin');
 });
 
 Route::middleware("auth:sanctum")->group(function () {
